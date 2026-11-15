@@ -1,17 +1,13 @@
 <?php
 session_start();
+include __DIR__ . '/FE/header.php';
 
 // Pengaman: Jika belum login, tendang balik ke login.php
-$roles = '';
-if ($_SESSION['role'] == 1) {
-    $roles = "supplier";
-}
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,17 +16,6 @@ if (!isset($_SESSION['login'])) {
 </head>
 <body>
 
-    <h1>Selamat Datang di Dashboard, <?=
-    $_SESSION['nama']; ?>!</h1>
-    <p>Kamu berhasil login menggunakan username:
-    <strong><?= $_SESSION['username']; ?></strong></p>
-    <h3>
-        <?= $roles ?>
-    </h3>
-
-    <hr>
-    <!-- Kamu bisa buat logout.php nanti -->
-    <a href="logout.php">Logout</a>
-
 </body>
 </html>
+<?php include __DIR__ . '/FE/footer.php' ?>
