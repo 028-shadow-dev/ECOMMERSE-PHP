@@ -15,17 +15,13 @@
         $result = mysqli_stmt_get_result($stmt);
         $data   = mysqli_fetch_assoc($result);
 
-
         if ($data) {
             if (password_verify($password, $data['password'])) {
                 $_SESSION['login'] = true;
+                $_SESSION['user_id']  = $data['id_User']; 
                 $_SESSION['username'] = $data['username'];
                 $_SESSION['nama'] = $data['nama'];
-                if ($data['role'] == 1) {
-                    $_SESSION['role'] = true;
-                } else {
-                    $_SESSION['role'] = false;
-                }   
+                $_SESSION['role'] = $data['role'];
                 header("location: dashboard.php");
                 exit;
             } else {

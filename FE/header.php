@@ -1,10 +1,5 @@
-<?php 
-$roles = '';
-if ($_SESSION['role'] == 1) {
-    $roles = "supplier";
-} else {
-    $roles = "user/buyer";
-}
+<?php
+$roles = isset($_SESSION['role']) ? $_SESSION['role'] : 'user';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,10 +8,8 @@ if ($_SESSION['role'] == 1) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <h1>Selamat Datang di Dashboard, <?= $_SESSION['nama']; ?>!</h1>
-    <p>Kamu berhasil login menggunakan username:
-    <strong><?= $_SESSION['username']; ?></strong> <br> Dan Roles mu <b><?= $roles ?></b></p>
-    <hr>
+<body style="margin: 0; padding: 0;">
+    <header class="header">
+    </header>
 </body>
 </html>
