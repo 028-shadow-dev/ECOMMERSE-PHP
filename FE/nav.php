@@ -8,12 +8,16 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <div style="color: white;">
+        <?php echo $_SESSION['nama']; ?>
+    <br>
+        <?php echo $_SESSION['role']; ?>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav mx-auto">
         <li class="nav-item">
           <a class="nav-link active" href="#">Home
             <span class="visually-hidden">(current)</span>
@@ -37,11 +41,6 @@
       </form>
     </div>
   </div>
-    <div style="color: white;">
-        <?php echo $_SESSION['nama']; ?>
-    <br>
-        <?php echo $_SESSION['role']; ?>
-    </div>
 </nav>
     <hr>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

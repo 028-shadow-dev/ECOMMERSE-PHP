@@ -1,10 +1,18 @@
 <?php
 include __DIR__ . '/koneksi.php';
 if (isset($_POST['register'])) {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $nama = $_POST['nama'];
-    $password = $_POST['password'];
+    $username =  trim($_POST['username'] ?? '');
+    $email =  trim($_POST['email']?? '');
+    $nama =  trim($_POST['nama']?? '');
+    $password =  trim($_POST['password']?? '');
+
+    if (empty($username) || empty($email) || empty($nama) || empty($password)) {
+        echo "<script>
+                alert('Gagal! Nama, email, username dan password tidak boleh kosong.');
+                window.history.back(); // Kembali ke halaman form
+            </script>";
+        exit;
+    }
 
     $password_hashed = password_hash($password, PASSWORD_DEFAULT);
     

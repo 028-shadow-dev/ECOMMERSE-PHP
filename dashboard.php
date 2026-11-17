@@ -10,7 +10,11 @@ if (!isset($_SESSION['login'])) {
     header("Location: login.php");
     exit;
 }
+if ($_SESSION['role'] === "supplier") {
+    include __DIR__ . '/FE/supplierform.php';
 
+    $stmt = mysqli_prepare($koneksi, "SELECT * FROM barang (nama_produk, jumlah_produk) VALUE (?,?)");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

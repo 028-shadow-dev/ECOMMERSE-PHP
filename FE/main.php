@@ -1,5 +1,11 @@
 <?php 
+    include __DIR__ . '/../BE/koneksi.php';
+    if ($_SESSION['role'] === "supplier") {
 
+
+        $stmt = mysqli_prepare($koneksi, "SELECT * FROM barang (nama_produk, jumlah_produk) VALUES (?,?)");
+        mysqli_stmt_bind_param($stmt, "ss", );
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,19 +15,21 @@
     <title>Document</title>
     <style>
         .gambar-barang {
-            width: 100px;
-            height: 150px;
+            width: 150px;
+            height: 200px;
             object-fit: cover;
             border: 5px solid #ccc;
         }
         .form-beli {
             border: 5px solid #ccc;
-            width: 150px;
+            width: 200px;
             display: flex;
             justify-content: center;
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
         label {
             font-size: 24px;
@@ -40,8 +48,8 @@
         <div>
             <img src="FE/img/tel.avif" alt="ליב, אשתי" class="gambar-barang">
         </div>
-        <br>
-        <button type="submit">Beli</button>
+        <hr><br>
+        <button type="submit" name="beli">Beli</button>
     </form>
 </body>
 </html>
